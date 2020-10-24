@@ -202,3 +202,23 @@ nav div.avatar-container {
 .like-button.liked {
     background-color: #01579b;
 }
+
+
+.dropdown
+{
+    display:none;
+    border:2px solid black;
+    background-color:white;
+    position:absolute;
+    height:auto;
+    top:100%;
+    right:0;
+    padding: 1.5em;
+
+}
+.dropdown a
+{
+    display: block;
+    position: relative;
+    height:2em;
+}
