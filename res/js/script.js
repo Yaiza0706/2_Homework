@@ -65,7 +65,8 @@ function NewPosts(posts){
 
 		  }
 			if(post.media.type === "video"){
-				$('.post-image img', postTemplate).replaceWith('<video src="video.mp4", controls></video>').attr('src', post.media.url);
+				$('.post-image img', postTemplate).replaceWith('<video src="video.mp4", controls></video>')
+				$('.post-image video', postTemplate).attr('src', post.media.url);
 			}
 		}
 		$('.like-button',postTemplate).text(post.likes);
