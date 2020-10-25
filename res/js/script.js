@@ -76,7 +76,14 @@ function NewPosts(posts){
 	}
 }
 function likeButtonStyle(_this) {
-  _this.style.backgroundColor = '#01579b';
+	var bg_color = window.getComputedStyle(_this, null).backgroundColor;
+  	bg_color = bg_color.match(/\d+/g);
+
+  	if (rgbToHex(bg_color) == '#8a8a8a'){
+  		 _this.style.backgroundColor = '#01579b'
+  	}else{
+  		 _this.style.backgroundColor = '#8a8a8a'
+  	}
 }
 
 // Browse.html part -----------------------------------------------------
