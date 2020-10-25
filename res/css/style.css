@@ -217,3 +217,58 @@ nav div.avatar-container {
     position: relative;
     height:2em;
 }
+
+/*---------------- Browse.html ------------------*/
+
+/*
+1. Add white blue lines to the sides and white one to the center DONE!
+2. Make button change color DONE!
+3. Github fix DONE!
+5. Make page show all profiles
+6. Place elements to the center of the box
+*/
+
+
+#browse-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    min-height: 100%;
+    margin: auto;
+    padding: 90px 15px 15px 15px;
+    background-color: #ffffff;
+}
+
+.profile{
+    box-sizing: border-box;
+    width: 350px;     
+    border: 1px solid grey;
+    border-radius: 20px;
+    height: 300px;
+    margin-left:20px;
+    margin-top: 10px;
+    padding: 30px 5px 5px 110px;
+}
+
+
+.profile .author-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: top;
+    margin: 10px;
+} 
+
+
+.profile button {
+    padding: 8px 16px;
+    margin: 4px 0;
+    color: #ffffff;
+    background-color: #800080;
+    border: none;
+    border-radius: 4px;
+}
+
+

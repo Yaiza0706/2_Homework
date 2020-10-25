@@ -14,6 +14,13 @@ $(function(){
 	$.get('http://private-anon-27576e448e-wad20postit.apiary-mock.com/posts')
 		.done((post) => NewPosts(post))
 		.fail((error) => console.log(error));
+
+	// Browse.html part -----------------------------------------------------
+
+	$.get('https://private-anon-1773a2ca57-wad20postit.apiary-mock.com/profiles')
+		.done((profile) => NewProfileInfo(profile))
+		.fail((error) => console.log(error));
+
 })
 
 
@@ -70,4 +77,49 @@ function NewPosts(posts){
 }
 function likeButtonStyle(_this) {
   _this.style.backgroundColor = '#01579b';
+}
+
+// Browse.html part -----------------------------------------------------
+// Puts only one profile info everywhere, instead of putting all 4 different ones
+let profileInfo = 
+'<div class="profile">'+
+	'<span class="author-info">'+
+      '<img class="logo" src="res/images/avatar.png" class="avatar"><br>' +
+      '<h4 class ="nameSurname">Name Surname</h4>'+
+    '</span>'+ 
+    '<div calss="follow-button">'+
+    	'<button onclick="submitButtonStyle(this)" type="submit" class="stylebutton">Follow</button>' +
+    '</div>'
+'</div>';
+
+
+function NewProfileInfo(profiles){
+	for (profile of profiles){
+		let profileTemplate = $(profileInfo)
+		$('.profile .logo').attr('src', profile.avatar);
+		$('.profile .nameSurname').text(profile.firstname + " " + profile.lastname);
+
+		$('#browse-container').append(profileTemplate)
+	}
+}
+
+// Button
+function submitButtonStyle(_this) {
+	var bg_color = window.getComputedStyle(_this, null).backgroundColor;
+  	bg_color = bg_color.match(/\d+/g);
+
+  	if (rgbToHex(bg_color) == '#800080'){
+  		 _this.style.backgroundColor = '#808080'
+  	}else{
+  		 _this.style.backgroundColor = '#800080'
+  	}
+}
+
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(rgb) {
+  return "#" + componentToHex(+rgb[0]) + componentToHex(+rgb[1]) + componentToHex(+rgb[2]);
 }
