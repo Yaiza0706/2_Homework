@@ -18,7 +18,7 @@ $(function(){
 	// Browse.html part -----------------------------------------------------
 
 	$.get('https://private-anon-1773a2ca57-wad20postit.apiary-mock.com/profiles')
-		.done((profile) => NewProfileInfo(profile))
+		.done((profiles) => NewProfileInfo(profiles))
 		.fail((error) => console.log(error));
 
 })
@@ -96,8 +96,8 @@ let profileInfo =
 function NewProfileInfo(profiles){
 	for (profile of profiles){
 		let profileTemplate = $(profileInfo)
-		$('.profile .logo').attr('src', profile.avatar);
-		$('.profile .nameSurname').text(profile.firstname + " " + profile.lastname);
+		$('.logo', profileTemplate).attr('src', profile.avatar);
+		$('.nameSurname', profileTemplate).text(profile.firstname + " " + profile.lastname);
 
 		$('#browse-container').append(profileTemplate)
 	}
