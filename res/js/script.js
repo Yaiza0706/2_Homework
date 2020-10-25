@@ -14,11 +14,6 @@ $(function(){
 	$.get('http://private-anon-27576e448e-wad20postit.apiary-mock.com/posts')
 		.done((post) => NewPosts(post))
 		.fail((error) => console.log(error));
-
-	$( "button.like-button" ).on('click', ()=>{
-		$(".like-button.liked").toggle();
-	});
-
 })
 
 
@@ -38,13 +33,13 @@ let postInfo =
           '<small>month day, year 15:16</small>'+
         '</div>'+
         '<div class="post-image">'+
-          '<img src="", alt="This post have no media">'+
+          '<img src="", alt="">'+
         '</div>'+
         '<div class="post-title">'+
           '<h3></h3>'+
         '</div>'+
         '<div class="post-actions">'+
-          '<button type="button" name="like" class="like-button">100k</button>'+
+          '<button type="button" name="like" class="like-button" onclick="likeButtonStyle(this)">100k</button>'+
         '</div>'+
       '</div>';
 
@@ -72,4 +67,7 @@ function NewPosts(posts){
 		$('.like-button',postTemplate).text(post.likes);
 		$('section.main-container').append(postTemplate);
 	}
+}
+function likeButtonStyle(_this) {
+  _this.style.backgroundColor = '#01579b';
 }
